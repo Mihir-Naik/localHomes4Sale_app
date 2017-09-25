@@ -1,0 +1,13 @@
+<div>
+    <h1>LocalHomes4Sale</h1>
+    <div>
+        <% if logged_in? %>
+            <button> <%= link_to 'Log Out', logout_path, method: 'delete' %> </button>
+            <p> <%= link_to "Hi #{current_user.name}!", user_path(current_user) %> </p>
+        <% else %>
+            <button> <%= link_to 'Sign Up', new_user_path %> </button>
+            <button> <%= link_to 'Log In', new_session_path %> </button>
+        <% end %>
+    </div>
+    <hr>
+</div>

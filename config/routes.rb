@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'properties#index'
   resources :users
   resources :properties
