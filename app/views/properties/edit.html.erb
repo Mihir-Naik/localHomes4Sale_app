@@ -1,2 +1,41 @@
 <h1>Properties#edit</h1>
-<p>Find me in app/views/properties/edit.html.erb</p>
+
+<%= form_for @property do |f| %>
+<div>
+    <%= f.label :price, 'Sale Price($): ', class: ''%>
+    <%= f.text_field :price %>
+</div>
+<div>
+    <%= f.label :address, 'Address: ', class: ''%>
+    <%= f.text_field :address %>
+</div>
+<div>
+    <%= f.label :sq_footage, 'Square Footage: ', class: ''%>
+    <%= f.text_field :sq_footage %>
+</div>
+<div>
+    <%= f.label :no_of_bedroom, 'No. of Bedroom: ', class: ''%>
+    <%= f.number_field :no_of_bedroom %>
+</div>
+<div>
+    <%= f.label :no_of_bathroom, 'No. of Bathroom: ', class: ''%>
+    <%= f.number_field :no_of_bathroom %>
+</div>
+<div>
+    <%= f.label :description, 'Description: ', class: ''%>
+    <%= f.text_area :description %>
+</div>
+<div>
+    <%= f.label :image, 'Image Link: ', class: ''%>
+    <%= f.text_field :image %>
+</div>
+<div>
+    <%= f.submit 'Save Changes' %>
+</div>
+<% end %>
+
+<div>
+    <button>
+        <%= link_to 'Delete Property', property_path, data: {confirm: "Are you sure?"}, method: :delete %>
+    </button>
+</div>

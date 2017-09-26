@@ -1,4 +1,4 @@
 <h1>Welcome <%= @user.name %> !</h1>
-
-
-
+<button> <%= link_to 'Edit Account', edit_user_path(@user) %> </button>
+<button><%= link_to 'Add Property', new_property_path %></button>
+<button><%= link_to 'Check out properties', properties_path %></button>

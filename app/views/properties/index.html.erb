@@ -7,6 +7,8 @@
         <li>Price($): <%= p.price %></li>
         <li>Address: <%= p.address %></li>
         <li><%= link_to 'More details here', property_path(p.id) %></li>
+        <li>Posted by: <%= link_to p.user.name, user_path(p.user) %> about <%= time_ago_in_words p.created_at %></li>
+        <hr>
         <% end %>
     </ul>
 </div>

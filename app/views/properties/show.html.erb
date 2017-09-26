@@ -9,5 +9,6 @@
     <li>No. of Bathroom: <%= @property.no_of_bathroom %></li>
     <li>Description: <%= @property.description %></li>
 </ul>
+<h3>Contact: <%= @property.user.name %> @ <%= @property.user.phone %> OR <%= mail_to @property.user.email, nil %></h3>
 
 <button><%= link_to 'Edit', edit_property_path(@property) %></button>
