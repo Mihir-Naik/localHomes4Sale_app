@@ -1,2 +1,36 @@
-<h1>Properties#new</h1>
-<p>Find me in app/views/properties/new.html.erb</p>
+<h1>Let's sell your property!!!</h1>
+
+<%= form_for @property do |f| %>
+<div>
+    <%= f.label :price, 'Sale Price($): ', class: ''%>
+    <%= f.text_field :price %>
+</div>
+<div>
+    <%= f.label :address, 'Address: ', class: ''%>
+    <%= f.text_field :address %>
+</div>
+<div>
+    <%= f.label :sq_footage, 'Square Footage: ', class: ''%>
+    <%= f.text_field :sq_footage %>
+</div>
+<div>
+    <%= f.label :no_of_bedroom, 'No. of Bedroom: ', class: ''%>
+    <%= f.number_field :no_of_bedroom %>
+</div>
+<div>
+    <%= f.label :no_of_bathroom, 'No. of Bathroom: ', class: ''%>
+    <%= f.number_field :no_of_bathroom %>
+</div>
+<div>
+    <%= f.label :description, 'Description: ', class: ''%>
+    <%= f.text_area :description %>
+</div>
+<div>
+    <%= f.label :image, 'Image Link: ', class: ''%>
+    <%= f.text_field :image %>
+</div>
+<div>
+    <%= f.submit 'Post' %>
+</div>
+<% end %>
+

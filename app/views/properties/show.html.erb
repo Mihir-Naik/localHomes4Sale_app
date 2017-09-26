@@ -1,2 +1,13 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<div>
+    <img src="<%= @property.image %>" alt="" width="600px", height="400px">
+</div>
+<ul>
+    <li>Address: <%= @property.address %></li>
+    <li>Price($): <%= @property.price %></li>
+    <li>Square Footage: <%= @property.sq_footage%></li>
+    <li>No. of Bedroom: <%= @property.no_of_bedroom %></li>
+    <li>No. of Bathroom: <%= @property.no_of_bathroom %></li>
+    <li>Description: <%= @property.description %></li>
+</ul>
+
+<button><%= link_to 'Edit', edit_property_path(@property) %></button>
