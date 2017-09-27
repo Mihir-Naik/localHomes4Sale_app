@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless logged_in?
-      flash[:alert] = "Please log in to view that content."
+      flash[:danger] = "Access Denied."
       redirect_to new_session_path
     end
   end

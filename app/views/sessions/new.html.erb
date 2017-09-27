@@ -1,8 +1,15 @@
 <%= form_tag sessions_path, {:class => ''} do %>
 <h1>Log In</h1>
-<%= label_tag :email, 'Email*' %>
-<%= text_field_tag :email, params[:Email] %>
-<%= label_tag :password, 'Password*' %>
-<%= password_field_tag :password, nil %>
-<%= submit_tag 'Log In' %>
+<div class="form-group">
+        <%= label_tag :email, 'Email*'%>
+        <%= text_field_tag :email, params[:Email], class: 'form-control' %>
+</div>
+<div class="form-group">
+        <%= label_tag :password, 'Password*' %>
+        <%= password_field_tag :password, nil, class: 'form-control'  %>
+</div>
+<div class="form-group">
+        <%= submit_tag 'Log In', class: 'btn btn-success' %>
+</div>
 <% end %>
+<%= render 'layouts/partials/footer' %>

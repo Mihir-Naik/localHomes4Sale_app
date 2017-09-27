@@ -1,14 +1,21 @@
-<h1>Checkout these properties for sale:</h1>
+<h2 class="text-center">👇 Properties for sale 👇 </h2>
 
-<div>
-    <ul>
-        <% @properties.each do |p| %>
-        <img src="<%= p.image %>" alt="" width="300px", height="200px"> 
-        <li>Price($): <%= p.price %></li>
-        <li>Address: <%= p.address %></li>
-        <li><%= link_to 'More details here', property_path(p.id) %></li>
-        <li>Posted by: <%= link_to p.user.name, user_path(p.user) %> about <%= time_ago_in_words p.created_at %></li>
-        <hr>
-        <% end %>
-    </ul>
+<div class="row">
+    <% @properties.each do |p| %>
+        <div class="col-sm-6">
+            <div class="card bg-light mb-3 border border-dark" style="max-width: 30rem;">
+                <ul class="list-group list-group-flush">
+                    <img src="<%= p.image %>" alt="" class="card-img-top" >
+                    <div class="card-body"> 
+                        <h4 class="card-title">Address: <%= p.address %></h4>
+                        <p class="card-text">Price($): <%= p.price %></p>
+                        <li class="card-link"><%= link_to 'More details here', property_path(p.id) %></li>
+                    </div>
+                    <div class="card-body">
+                        <li class="card-link">Posted by: <%= link_to p.user.name, user_path(p.user) %> about <%= time_ago_in_words p.created_at %></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    <% end %>
 </div>

@@ -1,4 +1,20 @@
-<h1>Welcome <%= @user.name %> !</h1>
-<button> <%= link_to 'Edit Account', edit_user_path(@user) %> </button>
-<button><%= link_to 'Add Property', new_property_path %></button>
-<button><%= link_to 'Check out properties', properties_path %></button>
+<div class="card bg-secondary mb-3 text-center rounded-bottom border border-dark" id="welcomeDashboard">
+    <h1 class='card-title'>Welcome <%= @user.name %> !</h1>
+    <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Check out properties', properties_path %></p>
+    <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Add new property', new_property_path %></p>
+    <p class="btn btn-outline-secondary border border-danger"> <%= link_to 'Edit your Account', edit_user_path(@user) %> </p>
+</div>
+
+<div class="card-deck">
+    <% Property.all.each do |p| %>
+        <% if p.user_id == current_user.id %>
+            <div class="card bg-light mb-3">
+                <img src="<%= p.image %>" alt="" class="card-img-top img-thumbnail" >
+                <ul class="card-body">
+                    <h4 class="card-title"><%= p.address %></h4>
+                    <li lass="card-text"> $ <%= p.price %></li>
+                </ul>
+            </div>
+        <% end %>
+    <% end %>
+</div>
