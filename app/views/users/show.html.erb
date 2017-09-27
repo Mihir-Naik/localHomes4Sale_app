@@ -9,7 +9,7 @@
     <% Property.all.each do |p| %>
         <% if p.user_id == current_user.id %>
             <div class="card bg-light mb-3">
-                <img src="<%= p.image %>" alt="" class="card-img-top img-thumbnail" >
+                <img src="<%= p.image_file %>" alt="" class="card-img-top img-thumbnail" >
                 <ul class="card-body">
                     <h4 class="card-title"><%= p.address %></h4>
                     <li lass="card-text"> $ <%= p.price %></li>
