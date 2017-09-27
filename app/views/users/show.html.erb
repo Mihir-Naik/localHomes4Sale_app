@@ -1,4 +1,4 @@
-<div class="card bg-secondary mb-3 text-center rounded-bottom border border-dark" id="welcomeDashboard">
+<div class="card bg-secondary mb-3 text-center rounded-bottom border border-danger" id="welcomeDashboard">
     <h1 class='card-title'>Welcome <%= @user.name %> !</h1>
     <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Check out properties', properties_path %></p>
     <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Add new property', new_property_path %></p>
@@ -12,7 +12,8 @@
                 <img src="<%= p.image_file %>" alt="" class="card-img-top img-thumbnail" >
                 <ul class="card-body">
                     <h4 class="card-title"><%= p.address %></h4>
-                    <li lass="card-text"> $ <%= p.price %></li>
+                    <p lass="card-text"> $ <%= p.price %></p>
+                    <p><%= link_to 'Edit property', edit_property_path(p) %></p>
                 </ul>
             </div>
         <% end %>
