@@ -19,7 +19,7 @@ class PropertiesController < ApplicationController
     if @property.save
       redirect_to user_path(@current_user)
     else
-      redirect to new_property_path
+      redirect_to new_property_path
     end
   end
 

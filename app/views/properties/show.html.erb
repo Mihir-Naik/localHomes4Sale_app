@@ -9,6 +9,11 @@
     <li>No. of Bathroom: <%= @property.no_of_bathroom %></li>
     <li>Description: <%= @property.description %></li>
 </ul>
-<h3>Contact: <%= @property.user.name %> @ <%= @property.user.phone %> OR <%= mail_to @property.user.email, nil %></h3>
+<h5>Contact: <%= @property.user.name %> @ <%= @property.user.phone %> OR <%= mail_to @property.user.email, nil %></h5>
 
+<% unless current_user.id != @property.user.id %>
+<button><%= link_to 'Add more photos', new_property_image_path(@property) %></button>
 <button><%= link_to 'Edit', edit_property_path(@property) %></button>
+<% end %>
+<button><%= link_to 'View more photos', property_images_path(@property) %></button>
+<button><%= link_to 'Go Back', properties_path %></button>

@@ -1,0 +1,15 @@
+<h3>More photos for <%= @property.address %> </h3>
+
+<% @property.images.each do |i| %>
+  <div>
+      <%= image_tag i.picture.url(:medium) %>
+      <p><%= i.caption %></p>
+  </div>
+<% end %>
+
+
+<div>
+  <p class="btn btn-light"><%= link_to 'Go Back', property_path(@property) %></p>
+</div>
+
+<%# if i.property.id == @property %><%# end %>

@@ -26,7 +26,7 @@
         <%= f.text_area :description, class: 'form-control'  %>
     </div>
     <div class="form-group">
-        <%= f.label :image_file, 'Image Link: '%>
+        <%= f.label :image_file, 'Cover photo: '%>
         <%= f.file_field :image_file, class: 'form-control'  %>
     </div>
 <div class="form-group">
@@ -37,3 +37,4 @@
 <div class="form-group">
         <%= link_to 'Delete Property', property_path, data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-danger' %>
 </div>
+
