@@ -1,26 +1,40 @@
-<div class="card bg-secondary mb-3 text-center rounded-bottom border border-danger" id="welcomeDashboard">
-    <% unless current_user.id == @user.id %>
-        <h1 class='card-title'><%= @user.name %>'s properties'</h1>
-    <% end %>
-    <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Check out properties', properties_path %></p>
-    <p class="btn btn-outline-secondary border border-danger"><%= link_to 'Add new property', new_property_path %></p>
-    <p class="btn btn-outline-secondary border border-danger"> <%= link_to 'Edit your Account', edit_user_path(@user) %> </p>
-</div>
-
-<div class="card-deck">
-    <% @user.properties.each do |p| %>
-        <div class="card bg-light mb-3">
-            <!--  <img src="<%= p.image_file %>" alt="" class="card-img-top img-thumbnail" > -->
-            <%= image_tag p.image_file.url(:medium), class: "card-img-top img-thumbnail" %>
-            <div class="card-body">
-                <h4 class="card-title"><%= p.address %></h4>
-                <p lass="card-text"> $ <%= p.price %></p>
-                <p class="card-link"><%= link_to 'More details here', property_path(p.id) %></p>
-                <% if current_user.id == @user.id %>
-                    <button><%= link_to 'Edit property', edit_property_path(p) %></button>
-                    <button><%= link_to 'Add more photos', new_property_image_path(p) %></button>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="card bg-secondary  mb-3 text-center rounded-bottom border border-danger" id="welcomeDashboard">
+                <% unless current_user.id == @user.id %>
+                    <p class='card-text'></p>
                 <% end %>
+                <p class="btn btn-outline-secondary btn-sm border border-danger"><%= link_to 'Check out properties', properties_path %></p>
+                <p class="btn btn-outline-secondary btn-sm border border-danger"><%= link_to 'Add new property', new_property_path %></p>
+                <p class="btn btn-outline-secondary btn-sm border border-danger"> <%= link_to 'Edit your Account', edit_user_path(@user) %> </p>
             </div>
         </div>
-    <% end %>
+        
+
+
+        <% unless current_user.id == @user.id %>
+            <h3 class='card-text'><%= @user.name %>'s listings:</h3>
+        <% end %>
+        <div class="card-deck">
+            <% @user.properties.each do |p| %>
+                <div class="col-4">
+                    <div class="card bg-light mb-3">
+                        <!--  <img src="<%= p.image_file %>" alt="" class="card-img-top img-thumbnail" > -->
+                        <%= image_tag p.image_file.url(:medium), class: "card-img-top img-thumbnail" %>
+                        <div class="card-body">
+                            <h4 class="card-title"><%= p.address %></h4>
+                            <p lass="card-text"> $ <%= p.price %></p>
+                            <p class="card-link"><%= link_to 'More details here', property_path(p.id) %></p>
+                            <% if current_user.id == @user.id %>
+                                <p class="btn btn-outline-danger"><%= link_to 'Edit property', edit_property_path(p) %></p>
+                                <p class="btn btn-outline-danger"><%= link_to 'Add more photos', new_property_image_path(p) %></p>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
 </div>
