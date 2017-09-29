@@ -20,7 +20,7 @@ Check out the web application here: [LocalHomes4Sale]()
 ### Approach taken: 
 
 								***ERD***
-![](/Users/naikmd/projects/project2/Project 2 - ERD.png)
+![ERD](public/ERD - Project 2.png)
 
 							***Wireframes***
 	
