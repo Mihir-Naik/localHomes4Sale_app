@@ -41,6 +41,9 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property = Property.find(params[:id])
+    @property.images.each do |i|
+      i.destroy
+    end
     if @property.destroy
       redirect_to user_path(@current_user)
     end
