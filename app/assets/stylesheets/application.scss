@@ -1,7 +1,10 @@
 @import "bootstrap";
 
-body {
-    background:white;
+.bg_image {
+    background-image: image-url('background.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #welcomeDashboard {

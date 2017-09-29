@@ -1,26 +1,24 @@
-
-
 <div class="container-fluid text-center">
-   <h1 style="margin: 50px;">Log In</h1>
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-                <%= form_tag sessions_path, {:class => ''} do %>
-
-                <div class="form-group">
-                        <%= label_tag :email, 'Email*'%>
-                        <%= text_field_tag :email, params[:Email], class: 'form-control text-center' %>
+        <h1 style="margin: 50px;">Log In</h1>
+                <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                        <%= form_tag sessions_path, {:class => ''} do %>
+        
+                        <div class="form-group">
+                                <%= label_tag :email, 'Email*'%>
+                                <%= text_field_tag :email, params[:Email], class: 'form-control text-center' %>
+                        </div>
+                        <div class="form-group">
+                                <%= label_tag :password, 'Password*' %>
+                                <%= password_field_tag :password, nil, class: 'form-control text-center'  %>
+                        </div>
+                        <div class="form-group">
+                                <%= submit_tag 'Log In', class: 'btn btn-success  btn-lg' %>
+                        </div>
+                        <% end %>
                 </div>
-                <div class="form-group">
-                        <%= label_tag :password, 'Password*' %>
-                        <%= password_field_tag :password, nil, class: 'form-control text-center'  %>
+                <div class="col-3"></div>
                 </div>
-                <div class="form-group">
-                        <%= submit_tag 'Log In', class: 'btn btn-success  btn-lg' %>
-                </div>
-                <% end %>
-        </div>
-        <div class="col-3"></div>
-    </div>
-   <%= render 'layouts/partials/footer' %>
+        <%= render 'layouts/partials/footer' %>
 </div>
