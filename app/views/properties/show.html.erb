@@ -1,19 +1,27 @@
-<div>
-    <img src="<%= @property.image_file %>" alt="" class="img-thumbnail" >
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-4">
+            <h5 class="font-weight-bold">Address: <%= @property.address %></h5>
+            <h5 class="font-weight-bold">Price($): <%= @property.price %></h5>
+            <p>Square Footage: <%= @property.sq_footage%></p>
+            <p>No. of Bedroom: <%= @property.no_of_bedroom %></p>
+            <p>No. of Bathroom: <%= @property.no_of_bathroom %></p>
+            <p>Description: <%= @property.description %></p>
+            <h5>Contact: <u><%= @property.user.name %></u> @ <%= @property.user.phone %> or <%= mail_to @property.user.email, nil %></h5>
+            <% if current_user %>
+            <% unless current_user.id != @property.user.id %>
+            <p class="btn btn-outline-danger btn-lg"><%= link_to 'Add more photos', new_property_image_path(@property) %></p>
+            <p class="btn btn-outline-danger btn-lg"><%= link_to 'Edit', edit_property_path(@property) %></p>
+            <% end %>
+            <% end %>
+            
+            <p class="btn btn-outline-danger btn-lg"><%= link_to 'View more photos', property_images_path(@property) %></p>
+            <p class="btn btn-outline-danger btn-lg"><%= link_to 'Go Back', properties_path %></p>    
+        </div>
+        <div class="col-8">
+            <div>
+                <img src="<%= @property.image_file %>" alt="" class="border border-danger rounded" style="max-width: 100%;" >
+            </div>
+        </div>
+      </div>
 </div>
-<ul>
-    <li class="font-weight-bold">Address: <%= @property.address %></li>
-    <li class="font-weight-bold">Price($): <%= @property.price %></li>
-    <li>Square Footage: <%= @property.sq_footage%></li>
-    <li>No. of Bedroom: <%= @property.no_of_bedroom %></li>
-    <li>No. of Bathroom: <%= @property.no_of_bathroom %></li>
-    <li>Description: <%= @property.description %></li>
-</ul>
-<h5>Contact: <%= @property.user.name %> @ <%= @property.user.phone %> OR <%= mail_to @property.user.email, nil %></h5>
-
-<% unless current_user.id != @property.user.id %>
-<button><%= link_to 'Add more photos', new_property_image_path(@property) %></button>
-<button><%= link_to 'Edit', edit_property_path(@property) %></button>
-<% end %>
-<button><%= link_to 'View more photos', property_images_path(@property) %></button>
-<button><%= link_to 'Go Back', properties_path %></button>

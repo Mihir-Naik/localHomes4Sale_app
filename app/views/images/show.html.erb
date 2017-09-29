@@ -1,2 +1,6 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<h3>Listing for: <%= link_to @image.property.address, property_path(@image.property.id)%></h3>
+<h4><%= @image.caption %></h4>
+<% unless current_user.id != @image.property.user.id %>
+<p><%= link_to 'Delete', property_image_path(@image.property), data: {confirm: "Are you sure?"}, method: :delete, class: 'btn btn-danger' %></p>
+<% end %>
+<%= image_tag @image.picture.url, :style => "max-width: 100%;" %>

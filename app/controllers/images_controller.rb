@@ -38,6 +38,10 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+    @image = Image.find(params[:id])
+    if @image.destroy
+      redirect_to property_images_path
+    end
   end
 
   private
